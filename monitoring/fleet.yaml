@@ -15,6 +15,22 @@ helm:
         resources:
           requests:
             cpu: 10m
+targetCustomizations:
+- name: aks
+  helm:
+    values:
+      rkeControllerManager:
+        enabled: "false"
+      rkeScheduler:
+        enabled: "false"
+      rkeProxy:
+        enabled: "false"
+      rkeEtcd:
+        enabled: "false"
+  clusterSelector:
+    matchLabels:
+      type: aks
+
 diff:
   comparePatches:
   - apiVersion: admissionregistration.k8s.io/v1beta1
