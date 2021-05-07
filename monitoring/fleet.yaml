@@ -16,7 +16,7 @@ helm:
           requests:
             cpu: 10m
 targetCustomizations:
-- name: aks
+- name: cloudHosted
   helm:
     values:
       rkeControllerManager:
@@ -29,7 +29,7 @@ targetCustomizations:
         enabled: "false"
   clusterSelector:
     matchLabels:
-      type: aks
+      type: cloud
 
 diff:
   comparePatches:
